@@ -1,0 +1,26 @@
+<div class="flex-box">
+    <h2> Recent Reviews</h2>  
+    <a class="nonNameLink" routerLink="new">New</a>
+  </div>
+  <div *ngIf="reviews">
+  
+    <ul [@listStagger]="reviews">
+      <li *ngFor="let review of reviews">
+          <div>
+            <a class="namedLink" routerLink="{{ review.rest._id }}">{{ review.rest.name }}</a>
+            <ul class="inner">
+              <li>{{ review.content }}</li>
+              <li class="starsline">
+                  <span *ngFor="let i of range">
+                    <i *ngIf="review.stars >= i"class="material-icons">star</i>
+                  </span>
+              </li>
+              <li class="flex-box">
+                <p>by <strong>{{ review.customer }}</strong> on {{ review.created_at }}</p>  
+                <!-- <a class="trash"><i class="material-icons">delete</i></a> -->
+              </li>
+            </ul> 
+          </div>
+      </li> 
+    </ul>
+  </div>

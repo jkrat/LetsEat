@@ -1,0 +1,9 @@
+.container {
+    margin-top: 40px;
+}
+.nonNameLink {
+    font-size: 1.2em;
+    text-decoration: none;
+    color:black;
+    cursor: pointer;
+}

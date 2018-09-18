@@ -1,0 +1,46 @@
+<div *ngIf="rest">
+    <ul [@listStagger]="rest">
+      <li>
+        <div class="flex-box">
+          <div>
+            <a class="namedLink" routerLink="review">{{ rest.name }}</a>
+            <ul class="inner">
+              <li>{{ rest.cuisine }}</li>
+              <li class="starsline">
+                  <span *ngFor="let i of range">
+                    <i *ngIf="rest.rating >= i"class="material-icons">star</i>
+                    <i *ngIf="i > rest.rating && rest.rating >= (i - .5) "class="material-icons">star_half</i>
+                  </span>
+              </li>
+            </ul> 
+          </div>
+          <div class="buttons">
+              <a class="trash" routerLink="review"><i class="material-icons">message</i></a>
+              <a class="trash" routerLink="edit"><i class="material-icons">create</i></a>
+              <a class="trash" (click)="delete(rest)"><i class="material-icons">delete</i></a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+   
+  <div *ngIf="reviews">
+    <ul [@listStagger]="reviews" id="tab">
+        <li *ngFor="let review of reviews">
+            <div>
+              <a class="namedLink" routerLink="{{ review.id }}">{{ review.rest.name }}</a>
+              <ul class="inner">
+                <li>{{ review.content }}</li>
+                <li class="starsline">
+                    <span *ngFor="let i of range">
+                      <i *ngIf="review.stars >= i"class="material-icons">star</i>
+                    </span>
+                </li>
+                <li>
+                  <p>by <strong>{{ review.customer }}</strong> on {{ review.created_at }}</p>  
+                </li>
+              </ul> 
+            </div>
+        </li> 
+      </ul>
+      </div> 

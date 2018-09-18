@@ -1,0 +1,29 @@
+<div class="flex-box">
+  <h2>Restaurants</h2>  
+  <a class="nonNameLink" routerLink="new">New</a>
+</div>
+<div *ngIf="rests">
+
+  <ul [@listStagger]="rests">
+    <li *ngFor="let rest of rests">
+      <div class="flex-box">
+        <div>
+          <a class="namedLink" routerLink="{{ rest._id }}">{{ rest.name }}</a>
+          <ul class="inner">
+            <li>{{ rest.cuisine }}</li>
+            <li class="starsline">
+                <span *ngFor="let i of range">
+                  <i *ngIf="rest.rating >= i"class="material-icons">star</i>
+                  <i *ngIf="i > rest.rating && rest.rating >= (i - .5) "class="material-icons">star_half</i>
+                </span>
+            </li>
+          </ul> 
+        </div>
+        <!-- <div class="buttons">
+            <a class="trash" routerLink="{{ rest._id }}/review"><i class="material-icons">create</i></a>
+            <a class="trash" (click)="delete(rest)"><i class="material-icons">delete</i></a>
+        </div> -->
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,23 @@
+.namedLink {
+    font-size: 1.5em;
+    text-decoration: none;
+    font-weight: bold;
+    color:#ffc600;
+} 
+.nonNameLink {
+    font-size: 1.2em;
+    text-decoration: none;
+    color:black;
+    cursor: pointer;
+}
+.trash i{
+    margin: 2px 0px 0px 8px;
+    vertical-align: bottom;
+    color:#2D2E2E;
+}
+.buttons {
+    padding: 70px 20px 0px 0px; 
+}
+.starsline span {
+    display: inline;
+}
